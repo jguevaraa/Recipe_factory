@@ -1,6 +1,13 @@
-<h2>{{ recipe.title }}</h2>
-<a class="btn btn-primary btn-sm" style="margin-bottom: 20px" href="/private/recipes/create">Add new recipe</a>
-<a class="btn btn-primary btn-sm" style="margin-bottom: 20px" href="/private/recipes/search">Search for more recipies</a>
+<h2 style="margin-top: 30px; text-align: center">{{ recipe.title }}</h2>
+
+
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'first')" id="defaultOpen">Recipes</button>
+    <button class="tablinks" onclick="openCity(event, 'second')">Finde new recipies</button>
+   
+  </div>
+
+<div id="first" class="tabcontent">
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
@@ -21,4 +28,36 @@
             </div>
         </div>
     </div>
+    
 </div>
+
+
+</div>
+ <div id="second" class="tabcontent">
+    <form action="/search" method="POST">
+      <label for="ingredient">Ingredient:</label>
+      <input type="text" name="ingredient" required>
+      <button type="submit">I am hungry</button>>
+    </form>
+  </div>
+
+
+
+
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+  </script>
+

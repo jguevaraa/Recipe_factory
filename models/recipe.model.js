@@ -9,7 +9,7 @@ const recipeSchema = new Schema({
   dishType: [{type: String}],
   readyInMinutes: {type: Number, min: 0},
   author: {type: String},
-  image: {type: String},
+  image: {type: String, default: "https://x.yummlystatic.com/web/Recipe-default-07.jpg"},
   summary: {type: String},
 })
 

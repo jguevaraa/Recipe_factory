@@ -1,70 +1,47 @@
 <h2>Recipes </h2>
-<a class="btn btn-primary btn-sm" style="margin-bottom: 20px" href="/private/recipes/search">Search for more
-  recipies</a>
+<a class="btn btn-primary btn-sm" style="margin-bottom: 20px" href="/private/recipes/search">Search for more recipies</a>
 <div>
-
-  <body>
-
-
-
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'first')" id="defaultOpen">Recipes</button>
-      <button class="tablinks" onclick="openCity(event, 'second')">Finde new recipies</button>
-
-    </div>
-
-    <div id="first" class="tabcontent">
-
-
-
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        {{#each data}}
-
-        <div class="col" style="max-width: 280px">
-          <div class="card h-100" style="background-color: #1f1d2b;">
-
-            <img src={{ image }} class="card-img-top" style="max-width: 80%" alt={{ title }}>
-            <div class="card-body" style="background-color: #1f1d2b; color: white">
-              <h5 class="card-title">{{ title }}</h5>
-              <p class="card-text">Number of likes: {{ likes }}</p>
-              <a class="btn btn-primary btn-sm" href="/recipies/view/{{id}}">Check this out</a>
-            </div>
-
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'first')" id="defaultOpen">Recipes</button>
+    <button class="tablinks" onclick="openCity(event, 'second')">Finde new recipies</button>
+  </div>
+  <div id="first" class="tabcontent">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {{#each data}}
+      <div class="col" style="max-width: 280px">
+        <div class="card h-100" style="background-color: #1f1d2b;">
+          <img src={{ image }} class="card-img-top" style="max-width: 80%" alt={{ title }}>
+          <div class="card-body" style="background-color: #1f1d2b; color: white">
+            <h5 class="card-title">{{ title }}</h5>
+            <p class="card-text">Number of likes: {{ likes }}</p>
+            <a class="btn btn-primary btn-sm" href="/recipies/view/{{id}}">Check this out</a>
           </div>
-
         </div>
-        {{/each}}
       </div>
+      {{/each}}
     </div>
-
-    <div id="second" class="tabcontent">
-      <form action="/search" method="POST">
-        <label for="ingredient">Ingredient:</label>
-        <input type="text" name="ingredient" required>
-        <button type="submit">I am hungry</button>>
-      </form>
-    </div>
-
-
-    <script>
-      function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
+  </div>
+  <div id="second" class="tabcontent">
+    <form action="/search" method="POST">
+      <label for="ingredient">Ingredient:</label>
+      <input type="text" name="ingredient" required>
+      <button type="submit">I am hungry</button>>
+    </form>
+  </div>
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
-
-      // Get the element with id="defaultOpen" and click on it
-      document.getElementById("defaultOpen").click();
-    </script>
-</div>
-</body>
-
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+  </script>
 </div>

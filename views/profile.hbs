@@ -1,18 +1,13 @@
 <h1>What you want cook today {{user.username}}</h1>
-
-{{!-- <a class="btn btn-primary btn-sm" href="/recipes">All my creations</a> --}}
 <a class="btn btn-primary btn-sm" href="/private/recipes/search">Find recipies with your favorite ingredient</a>
 <h2>All my creations</h2>
-
 <body>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'first')" id="defaultOpen">Recipes</button>
   <button class="tablinks" onclick="openCity(event, 'second')">Finde new recipies</button>
 </div>
-
 <div id="first" class="tabcontent">
 <div>
-
     {{#each recipes}}
     <div class="card mb-3">
         <div class="row g-0">
@@ -31,20 +26,7 @@
                         <li class="card-text"><small class="text-muted">Author: {{ author }}</small></li>
                     </ul>
                     <div class="card-body">
-
-
-
-                      
-
-
-
                         <a href="/private/recipes/{{id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-
-
-
-
-
-
                         <a href="/private/recipes/{{id}}/delete" class="btn btn-primary btn-sm">Delete</a>
                     </div>
                 </div>
@@ -53,13 +35,7 @@
     </div>
     {{/each}}
 </div>
-
-
-
-
-
 </div>
-
 <div id="second" class="tabcontent">
 <form action="/search" method="POST">
     <label for="ingredient">Ingredient:</label>
@@ -67,8 +43,6 @@
     <button type="submit">I am hungry</button>
 </form>
 </div>
-
-
 <script>
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
@@ -83,28 +57,12 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-
-
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
-
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 </script>
-   
 </body>
-
-
-
-
-
-
-
-
-
-

@@ -252,3 +252,7 @@ label {
   width: 80%;
   height: 320px;
 }
+
+.error-message{
+  color: black
+}

@@ -10,7 +10,7 @@ router.get('/signup', isLoggedOut,(req, res) => {
   res.render('signup');
 })
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req, res,  next) => {
   const { username, password, mail } = req.body;
 
   if (!username || !password || !mail) {
@@ -21,7 +21,7 @@ router.post('/signup', (req, res) => {
     res.render('signup', { errorMessage: 'Password should have at least 3 characters' })
   }
 
-  User.findOne({ $or: [{ username }, { mail }]})
+  User.findOne({ $or: [{ username },{password}, { mail }]})
     .then(user => {
       if (user) {
         return res.render('signup', { errorMessage: 'User already exists.' })
@@ -36,20 +36,7 @@ router.post('/signup', (req, res) => {
             if(error){
               next(error)
             }
-            transporter.sendMail({
-              from: "Contacto web <ironhacknodemailer@gmail.com>",
-              to: "diego.mendez@tailor-hub.com", // email from signup form
-              subject: "Bienvenido a mi aplicación",
-              text: "Bienvenido",
-              html: mailTemplate(username),
-            })
-              .then(() => {
-                return res.redirect('/private/profile')
-              })
-              .catch(error => {
-                console.log(error);
-                return res.redirect('/private/profile');
-              })
+            return res.redirect('/private/profile')
           })
         })
         .catch((error) => {
@@ -62,13 +49,15 @@ router.post('/signup', (req, res) => {
 });
 
 router.get('/login', isLoggedOut,(req, res) => {
-  res.render('login');
+  res.render('login',{errorMessage: req.flash("error")[0]});
 })
 
 router.post('/login', passport.authenticate("local", {
   successRedirect: "/private/profile",
   failureRedirect: "/auth/login",
-  passReqToCallback: true
+  passReqToCallback: true,
+  failureFlash: true
+
 }));
 
 router.get('/logout', (req, res) => {

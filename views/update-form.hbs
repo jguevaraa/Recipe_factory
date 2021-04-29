@@ -1,0 +1,83 @@
+<h2>Update the recipe</h2>
+<div class="container">
+    <form action="/private/recipes/{{recipes._id}}/edit" method="POST">
+        <div class="row">
+            <div class="col-25">
+                <label for="title">Title:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="title" value="{{recipes.title}}" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="ingredient">Ingredient:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="ingredient" value="{{recipes.ingredient}}" required>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="cuisines">Cuisines:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="cuisines" value="{{recipes.cuisines}}" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="dishType">DishType:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="dishType" value="{{recipes.dishType}}" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="readyInMinutes">How long it takes:</label>
+            </div>
+            <div class="col-75">
+                <input type="number" style="padding-top: 5px" name="readyInMinutes" min="0" value="{{recipes.readyInMinutes}}"
+                    required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="author">Author:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="author" value="{{recipes.author}}" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+
+                <label for="image">Image:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="image" value="{{recipes.image}}" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="summary">Summary:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="summary" value="{{recipes.summary}}" required>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="margin:auto">Update</button>
+    </form>
+</div>
+
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}

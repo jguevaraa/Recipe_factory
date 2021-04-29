@@ -7,14 +7,10 @@ const router = express.Router();
 const passport = require('passport');
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
-  Recipe.find({})
-  .then( recipes => {
   res.render('profile', { recipes, user:req.user });
-})
 })
 
 router.post('/profile', (req, res, next) => {
-
   res.render('profile', { user: req.user });
 })
 

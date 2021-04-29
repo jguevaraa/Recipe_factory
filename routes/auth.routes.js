@@ -36,7 +36,20 @@ router.post('/signup', (req, res) => {
             if(error){
               next(error)
             }
-            return res.redirect('/private/profile')
+            transporter.sendMail({
+              from: "Contacto web <ironhacknodemailer@gmail.com>",
+              to: "diego.mendez@tailor-hub.com", // email from signup form
+              subject: "Bienvenido a mi aplicación",
+              text: "Bienvenido",
+              html: mailTemplate(username),
+            })
+              .then(() => {
+                return res.redirect('/private/profile')
+              })
+              .catch(error => {
+                console.log(error);
+                return res.redirect('/private/profile');
+              })
           })
         })
         .catch((error) => {

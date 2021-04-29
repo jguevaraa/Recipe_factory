@@ -17,6 +17,10 @@ h1{
   background-color: #1f1d2b!important;
 }
 
+div.row.row-cols-1.row-cols-md-2.g-4 {
+  justify-content: space-around;
+}
+
 #navbarNavAltMarkup a {
   color: white;
 }
@@ -25,7 +29,7 @@ h1{
   background-color: yellow;
 }
 
-.btn, .btn-primary, .btn-sm, .btn-primary:hover {
+button, .btn, .btn-primary, .btn-sm, .btn-primary:hover {
   background-color: #EA7C69;
   border-color: tomato;
   color: white;
@@ -45,7 +49,7 @@ a {
   right:0;left:0;
   margin:auto;
   height:400px;
-  background-color: rgba(236, 48, 20, 0.9);
+  background-color: rgba(202, 66, 45, 0.9);
 }
 .white-panel {
   background-color: rgba(255,255, 255, 1);
@@ -109,15 +113,9 @@ a {
   right:50px !important;
 }
 
-.login-show {
+.register-show, .login-show {
   color:#242424;
-  text-align:left;
-  padding:50px;
-}
-
-.register-show {
-  color:#242424;
-  text-align:left;
+  text-align: center;
   padding:50px;
 }
 
@@ -173,7 +171,7 @@ body {
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #1f1d2b;
 }
 
 .tab button {
@@ -185,10 +183,11 @@ body {
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  color: white;
 }
 
-.tab button.active {
-  background-color: #ccc;
+button.active {
+  background-color: rgb(131, 124, 124);
 }
 
 .tabcontent {
@@ -205,7 +204,7 @@ body {
 input[type=text], select, textarea {
   width: 100%;
   padding: 8px;
-  border: 1px solid rgb(170, 31, 31);
+  border: 1px solid #1f1d2b;
   border-radius: 4px;
   resize: vertical;
 }

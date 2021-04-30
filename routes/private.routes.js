@@ -63,7 +63,6 @@ router.post("/recipes/:id/edit", (req, res, next) => {
     dishType,
     readyInMinutes,
     author,
-    image,
     summary,
   } = req.body;
   Recipe.findByIdAndUpdate(
@@ -75,7 +74,6 @@ router.post("/recipes/:id/edit", (req, res, next) => {
       dishType,
       readyInMinutes,
       author,
-      image,
       summary,
     },
     { new: true }
